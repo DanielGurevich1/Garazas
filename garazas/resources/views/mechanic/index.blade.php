@@ -1,10 +1,8 @@
 @foreach ($mechanics as $mechanic)
-{{$mechanic->name}} {{$mechanic->surname}}
+<a href="{{route('mechanic.edit',[$mechanic])}}">{{$mechanic->name}} {{$mechanic->surname}}</a>
 <form method="POST" action="{{route('mechanic.destroy', [$mechanic])}}">
-    <button style="{{route('mechanic.edit', [$mechanic])}}" type="submit">edit</button>
     @csrf
-    <button style="display:inline-block;" type="submit">DELETE</button>
+    <button type="submit">DELETE</button>
 </form>
 <br>
-
 @endforeach

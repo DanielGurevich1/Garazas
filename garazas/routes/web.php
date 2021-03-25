@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MechanicController;
+use App\Http\Controllers\TruckController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +32,14 @@ Route::group(['prefix' => 'mechanics'], function () {
     Route::post('update/{mechanic}', [MechanicController::class, 'update'])->name('mechanic.update');
     Route::post('delete/{mechanic}', [MechanicController::class, 'destroy'])->name('mechanic.destroy');
     Route::get('show/{mechanic}', [MechanicController::class, 'show'])->name('mechanic.show');
+});
+
+Route::group(['prefix' => 'trucks'], function () {
+    Route::get('', [BookController::class, 'index'])->name('truck.index');
+    Route::get('create', [BookController::class, 'create'])->name('truck.create');
+    Route::post('store', [BookController::class, 'store'])->name('truck.store');
+    Route::get('edit/{truck}', [BookController::class, 'edit'])->name('truck.edit');
+    Route::post('update/{truck}', [BookController::class, 'update'])->name('truck.update');
+    Route::post('delete/{truck}', [BookController::class, 'destroy'])->name('truck.destroy');
+    Route::get('show/{truck}', [BookController::class, 'show'])->name('truck.show');
 });

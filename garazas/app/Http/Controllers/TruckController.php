@@ -24,7 +24,7 @@ class TruckController extends Controller
      */
     public function create()
     {
-        //
+        return view('truck.create');
     }
 
     /**
