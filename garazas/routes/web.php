@@ -35,11 +35,11 @@ Route::group(['prefix' => 'mechanics'], function () {
 });
 
 Route::group(['prefix' => 'trucks'], function () {
-    Route::get('', [BookController::class, 'index'])->name('truck.index');
-    Route::get('create', [BookController::class, 'create'])->name('truck.create');
-    Route::post('store', [BookController::class, 'store'])->name('truck.store');
-    Route::get('edit/{truck}', [BookController::class, 'edit'])->name('truck.edit');
-    Route::post('update/{truck}', [BookController::class, 'update'])->name('truck.update');
-    Route::post('delete/{truck}', [BookController::class, 'destroy'])->name('truck.destroy');
-    Route::get('show/{truck}', [BookController::class, 'show'])->name('truck.show');
+    Route::get('', [TruckController::class, 'index'])->name('truck.index');
+    Route::get('create', [TruckController::class, 'create'])->name('truck.create');
+    Route::post('store', [TruckController::class, 'store'])->name('truck.store');
+    Route::get('edit/{truck}', [TruckController::class, 'edit'])->name('truck.edit');
+    Route::post('update/{truck}', [TruckController::class, 'update'])->name('truck.update');
+    Route::post('delete/{truck}', [TruckController::class, 'destroy'])->name('truck.destroy');
+    Route::get('show/{truck}', [TruckController::class, 'show'])->name('truck.show');
 });
