@@ -40,7 +40,7 @@ class MechanicController extends Controller
         $mechanic->name = $request->mechanic_name;
         $mechanic->surname = $request->mechanic_surname;
         $mechanic->save();
-        return redirect()->route('mechanic.index');
+        return redirect()->route('mechanic.index')->with('success_message', 'Recorded!');;
     }
 
     /**
@@ -77,7 +77,7 @@ class MechanicController extends Controller
         $mechanic->name = $request->mechanic_name;
         $mechanic->surname = $request->mechanic_surname;
         $mechanic->save();
-        return redirect()->route('mechanic.index');
+        return redirect()->route('mechanic.index')->with('success_message', 'Updated!');
     }
 
     /**
@@ -88,7 +88,12 @@ class MechanicController extends Controller
      */
     public function destroy(Mechanic $mechanic)
     {
+
+        if ($mechanic->mechasnicTruck->count()) {
+            return 'Trinti negalima, nes turi darbu';
+        }
+
         $mechanic->delete();
-        return redirect()->route('mechanic.index');
+        return redirect()->route('mechanic.index')->with('success_message', 'Deleted!');;
     }
 }
